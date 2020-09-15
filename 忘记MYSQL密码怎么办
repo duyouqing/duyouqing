@@ -1,0 +1,8 @@
+1：打开cmd命令符，先关闭正在运行的数据库，输入命令：net stop mysql
+2：打开mysql.exe和mysqld.exe所在的文件夹,复制路径地址
+3：输入命令  mysqld --skip-grant-tables  回车，此时就跳过了mysql的用户验证。注意输入此命令之后命令行就无法操作了，此时可以再打开一个新的dos窗口进入到mysql的bin目录下。  
+4：输入show databases; 可以看到所有数据库说明成功登陆。其中mysql库就是保存用户名的地方，输入 use mysql;   选择mysql数据库。
+5：show tables查看所有表，会发现有个user表，这里存放的就是用户名，密码，权限等等账户信息。
+6：:输入select user,host,password from user; 来查看账户信息。  
+7：更改root密码，输入update user set password=password('admin123') where user='root' and host='localhost';
+8：关闭两个窗口，重启mysql数据库，用新密码尝试登录。    
